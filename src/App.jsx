@@ -177,13 +177,3 @@ class App extends Component {
 }
 
 export default App;
-
-/* TODO
-undo/redo
-search
-Due today marked critical
-landing experience
-stress test long values 
-todo reordering drag and drop
-i16z tests
-*/

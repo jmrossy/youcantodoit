@@ -29,6 +29,7 @@ textarea {
   background: none;
   border-radius: 3px;
   caret-color: #666;
+  outline: none;
 }
 
 input[type="date"] {
