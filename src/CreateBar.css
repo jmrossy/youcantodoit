@@ -1,0 +1,35 @@
+.create-bar {
+	text-align: center;
+  margin-bottom: 1rem;
+	height: 4rem;
+	background: white;
+	border-radius: 3px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.create-bar form {
+  height: 100%;
+}
+
+.new-todo-title {
+  display: inline-block;
+  vertical-align: top;
+	height: 100%;
+	width: 90%;
+	padding: 0px 8px;
+}
+
+.new-todo-button {
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+  color: #37413a;
+  font-size: 1.7rem;
+}
+
+.new-todo-button:hover {
+  animation-name: spin;
+  animation-duration: 150ms;
+  animation-timing-function: linear;
+  color: #49574d;
+}

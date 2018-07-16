@@ -1,0 +1,61 @@
+.todo-item {
+  margin: 0;
+  background: white;
+  border-bottom: 1px solid #ddd;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.todo-item:first-child,
+.todo-item:last-child {
+  border-radius: 3px;
+}
+
+
+.todo-item:hover,
+.todo-item.selected { 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15), 0 5px 5px rgba(0,0,0,0.11);
+}
+
+.todo-item.selected {
+  transform: scale(1.05);
+}
+
+.todo-checkbox {
+  background: white;
+  color: white;
+  border: 1px solid #2e4739;
+  height: 1.3rem;
+  width: 1.3rem;
+  margin: 0 0.5rem;
+  padding: 0;
+  font-size: 0.8rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.todo-checkbox:hover,
+.checked .todo-checkbox {
+  color: #888;
+}
+
+.todo-title {
+  padding: 7px 0;
+  width: 85%;
+}
+
+.todo-item,
+.todo-checkbox,
+.todo-title {
+  cursor: pointer;
+}
+
+.checked.todo-item {
+  opacity: 0.5;
+}
+
+.checked .todo-checkbox:hover {
+  color: #000;
+}
+
+.checked .todo-title {
+  text-decoration: line-through;
+}

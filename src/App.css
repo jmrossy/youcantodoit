@@ -1,0 +1,147 @@
+h1, h2, h3, h4, h5, h6,
+input[type="text"] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #313832;
+}
+
+h1 {
+	margin: 0 auto 1.5rem;
+	font-size: 1.5rem;
+	padding: 0.2rem;
+  font-family: 'Neucha', 'Open Sans', sans-serif;
+	font-weight: normal;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+input[type="text"], 
+textarea {
+  font-family: 'Neucha', 'Open Sans', sans-serif;
+}
+
+input[type="text"], 
+input[type="date"],
+textarea {
+  border: none;
+  background: none;
+  border-radius: 3px;
+  caret-color: #666;
+}
+
+input[type="date"] {
+  display: inline-block;
+}
+
+textarea {
+	resize: none;
+	padding: 0;
+	width: 100%;
+} 
+
+button {
+	background: transparent;
+	border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+select {
+  appearance: none;
+  border: none;
+  outline: none;
+  color: rgba(0,0,0,0);
+  text-shadow: 0 0 0 #000;
+  cursor: pointer;
+}
+
+button:focus,
+select:focus {
+  outline: none;
+}
+
+::selection {
+  background: #c6dccd;
+}
+
+.top-nav {
+  position: relative;
+  overflow: visible;
+  padding-top: 1rem;
+  text-align: center;
+  width: 52rem;
+  margin: auto;
+}
+
+.about-app {
+  float: right;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.about-info {
+	position: absolute;
+	top: 1rem;
+	right: -8rem;
+	width: 7rem;
+	font-size: 0.7rem;
+	background: rgb(55, 65, 58);
+	color: white;
+	border-radius: 3px;
+	padding: 0.5rem;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+
+.todo-list {
+  width: 37rem;
+  margin: 0 2rem 0 0;
+}
+
+.sidebar {
+  width: 13rem;
+}
+
+.filter-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.filter-bar button,
+.filter-bar select {
+  margin: 0 0.5rem 0.5rem 0;
+  padding: 0.5rem;
+  background: rgba(255,255,255,0.8);
+  border-radius: 3px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.filter-bar button.active {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.filter-bar button:last-child {
+  margin-right: 0.1rem;
+}
+
+.filter-bar select {
+  margin-right: 0.3rem;
+}
+
+.filter-bar .sorters button {
+  padding: 0.4rem;
+}
+
+/* Animations */
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
