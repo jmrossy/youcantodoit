@@ -1,6 +1,6 @@
 #!/bin/bash
 LANDING_PATH=/var/www/youcantodoit.com
-LOCAL_PATH=./build
+LOCAL_PATH=../build
 echo "Note: requires sudo"
 echo "Using path: $LANDING_PATH"
 
