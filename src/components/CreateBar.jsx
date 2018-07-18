@@ -5,23 +5,22 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 class CreateBar extends Component {
 
-  constructor(props) {
-    super(props);
-    this.props = props;
-    this.defaultState = {
-      newTodoTitle: ''
-    };
-    this.state = this.defaultState;
-  }
-
-  handleChange(e) {
-    this.setState({ newTodoTitle: e.target.value });
+  guid() {
+    function s4() {
+      return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
   }
 
   handleSubmit(e) {
-    this.props.createTodo(this.state.newTodoTitle);
-    this.setState(this.defaultState);
     e.preventDefault();
+
+    if (!this.input.value.trim()) return;
+
+    this.props.createTodo(this.guid(), this.input.value);
+    this.input.value = '';
   }
 
   render() {
@@ -31,8 +30,7 @@ class CreateBar extends Component {
           <input className="new-todo-title"
             type="text"
             placeholder="I need to..."
-            value={this.state.newTodoTitle} 
-            onChange={(e) => this.handleChange(e)}
+            ref={node => this.input = node}
             autoFocus />
           <button className="new-todo-button" type="submit"><FontAwesomeIcon icon={faPlusCircle}/></button>
         </form>

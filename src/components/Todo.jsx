@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
 import './Todo.css'
+import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 class Todo extends Component {
 
   handleCheckboxClick() {
-    this.props.updateTodo(this.props.id, "checked", !this.props.checked, false);
+    this.props.updateTodo(this.props.id, "checked", !this.props.checked);
   }
 
   handleTitleChange(e) {

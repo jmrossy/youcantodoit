@@ -1,28 +1,35 @@
-import React, { Component } from 'react'
 import './SideBar.css'
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { updateTodo } from '../actions'
 
 class SideBar extends Component {
 
   handleDueDateChange(e) {
     const newDate = e.target.value;
-    this.props.updateTodo(this.props.id, "dueDate", newDate);
+    this.updateTodoProperty("dueDate", newDate);
   }
 
   handleNotesChange(e) {
     const newNotes = e.target.value;
-    this.props.updateTodo(this.props.id, "notes", newNotes);
+    this.updateTodoProperty("notes", newNotes);
   }
 
   handleColorChange(color) {
-    this.props.updateTodo(this.props.id, "color", color);
+    this.updateTodoProperty("color", color);
+  }
+
+  updateTodoProperty(key, value) {
+    if (!this.props.todo) return;
+    this.props.updateTodo(this.props.todo.id, key, value);
   }
 
   render() {
     return (
-      <div className="sidebar">
-        <h2>{this.props.title}</h2>
+      <div className={'sidebar ' + (this.props.todo ? 'enabled' : 'disabled') }>
+        <h2>{this.props.todo && this.props.todo.title}</h2>
         <div className="todo-color">
           <span className="default" onClick={() => this.handleColorChange('')}></span>
           <span className="red" onClick={() => this.handleColorChange('red')}></span>
@@ -34,9 +41,8 @@ class SideBar extends Component {
         <div className="todo-date">
           <label htmlFor="due-date"><FontAwesomeIcon icon={faCalendar} /></label>
           <input type="date"
-            value={this.props.dueDate}
+            value={this.props.todo && this.props.todo.dueDate}
             name="due-date"
-            className={this.props.dueDate === 0 ? 'empty' : ''}
             onChange={(e) => this.handleDueDateChange(e)} />
         </div>
         <div className="todo-notes">
@@ -44,7 +50,7 @@ class SideBar extends Component {
           <textarea cols="20" rows="10"
             name="notes"
             placeholder="Don't forget to..."
-            value={this.props.notes}
+            value={this.props.todo && this.props.todo.notes}
             onChange={(e) => this.handleNotesChange(e)} />
         </div>
       </div>
@@ -53,4 +59,12 @@ class SideBar extends Component {
 
 }
 
-export default SideBar;
+const mapStateToProps = state => ({
+  todo: state.todos.find(todo => todo.id===state.selected)
+})
+
+const mapDispatchToProps = dispatch => ({
+  updateTodo: (id, key, value) => dispatch(updateTodo(id, key, value))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SideBar);  
