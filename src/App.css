@@ -34,6 +34,11 @@ textarea {
 
 input[type="date"] {
   display: inline-block;
+  width: 85%;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
 }
 
 textarea {
